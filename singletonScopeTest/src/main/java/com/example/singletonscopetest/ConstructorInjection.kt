@@ -1,7 +1,6 @@
 package com.example.singletonscopetest
 
-import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.example.singletonscopetest.model.CommonModel
 import timber.log.Timber
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.example.singletonscopetest
+package com.example.singletonscopetest.model
 
 import javax.inject.Inject
 

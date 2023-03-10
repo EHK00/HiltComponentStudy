@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.singletonscopetest.databinding.ActivitySingletonScopeTestBinding
 import com.example.singletonscopetest.di.MyQualifier
 import com.example.singletonscopetest.di.Type
+import com.example.singletonscopetest.model.DestinationModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

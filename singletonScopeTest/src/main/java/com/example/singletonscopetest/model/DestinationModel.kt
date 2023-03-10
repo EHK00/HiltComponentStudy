@@ -1,8 +1,8 @@
-package com.example.singletonscopetest
+package com.example.singletonscopetest.model
 
 import com.example.singletonscopetest.model.ByProviderModel
 
-class DestinationModel2(
+class DestinationModel(
     val byProvider: ByProviderModel,
     val byProvider2: ByProviderModel,
 )  {
