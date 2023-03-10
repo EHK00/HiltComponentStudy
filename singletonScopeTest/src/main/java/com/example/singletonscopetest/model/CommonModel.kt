@@ -2,4 +2,4 @@ package com.example.singletonscopetest.model
 
 import javax.inject.Inject
 
-class CommonModel
+class CommonModel @Inject constructor()

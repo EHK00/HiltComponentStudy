@@ -4,45 +4,42 @@ Hilt Component lifetime, scope binding과 관련하여 인스턴스 테스트를
 
 ### 테스트
 
-[SingletonScopeTestFragment](https://github.com/)
+[SingletonScopeTestFragment](https://github.com/EHK00/HiltComponentStudy/blob/main/singletonScopeTest/src/main/java/com/example/singletonscopetest/SingletonScopeTestFragment.kt)
+field inject 주석 참고
 
+#### installIn(FragmentComponent) vs @FragmentScope annotation provide function
 
-- installIn(FragmentComponent) vs @FragmentScope annotation provide function
-logcat1
+<img src="images/logcat1.png" />
+
 @FragmentScope 여부에 따라서 동일 fragment에 대하여 새롭게 bind하거나, 기존 instance를 활용합니다.
 
-- class define with / without @FragmentScoped annotation
+#### model class define with / without @FragmentScoped annotation
 
-[ByConstructorInjectModelImpl](https://github.com/)
-@FragmentScoped 주석처리 여부에 따른 차이
+[ByConstructorInjectModelImpl](https://github.com/EHK00/HiltComponentStudy/blob/main/singletonScopeTest/src/main/java/com/example/singletonscopetest/model/ByConstructorInjectModel.kt) 에서 @FragmentScoped 주석 처리 여부에 따른 차이가 발생합니다.
 
-@FragmentScoped 주석
--logcat2
-@FragmentScoped annotated provider -> 동일 컴포넌트 범위에 대해 동일 인스턴스를 참조합니다
+@FragmentScoped를 주석처리한 경우
+
+<img src="images/logcat2.png" />
+
+@FragmentScoped anotation이 포함된 provider 함수 결과로 동일 컴포넌트 범위에 대해 동일 인스턴스를 참조합니다
 그외에는 새로 할당합니다.
 
+@FragmentScoped 주석을 해제한 경우
 
--logcat3
+<img src="images/logcat3.png" />
+
 @FragmentScoped
 동일 컴포넌트 범위에 대해 동일 인스턴스를 참조합니다
 
+## 정리
+component는 scope annotation 설정 범위를 제한합니다.
+dagger는 기본 동작으로 매 bind 요청마다 새로운 인스턴스를 생성합니다.(unscoped binding)
+scope annotation을 통해 동일한 bind 요청의 결과로 동일한 인스턴스를 공유할 수 있습니다.
 
+<img src="images/singletonScopedTest1.png" width="60%" />
 
+## 참고사이트
+[https://dagger.dev/hilt/components](https://dagger.dev/hilt/components)
 
-
-
-
-## 결론
-component는 바인딩되는 모듈의 수명 주기 설정 범위를 제한하며, scope binding을 통해 인스턴스 공유 여부를 설정합니다.
-
-기본적으로 대거는 매 binding 요청마다 새 인스턴스를 생성합니다.
-scope annotation을 통해 해당 바인딩에 대한 모든 요청은 동일한 인스턴스를 공유합니다.
-
-<표 참고>
-
-
-
-
-
-[참고 사이트 : https://dagger.dev/hilt/components](https://dagger.dev/hilt/components)
+[https://dagger.dev/dev-guide/](https://dagger.dev/dev-guide/)
 

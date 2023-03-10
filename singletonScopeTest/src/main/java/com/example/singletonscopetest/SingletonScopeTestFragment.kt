@@ -17,14 +17,16 @@ class SingletonScopeTestFragment : Fragment(R.layout.fragment_singleton_scope_te
         const val TAG = "SingletonScopeTestFragment"
     }
 
-//    @Inject
-//    @MyQualifier(Type.Normal)
-//    lateinit var model: DestinationModel
-//
-//    @Inject
-//    @MyQualifier(Type.FragmentScope)
-//    lateinit var model2: DestinationModel
+    // ByProvider test
+    @Inject
+    @MyQualifier(Type.Normal)
+    lateinit var model: DestinationModel
 
+    @Inject
+    @MyQualifier(Type.FragmentScope)
+    lateinit var model2: DestinationModel
+
+    // 생성자 + @Inject annotation 테스트
     @Inject
     @MyQualifier(Type.Normal)
     lateinit var model3: DestinationModel2

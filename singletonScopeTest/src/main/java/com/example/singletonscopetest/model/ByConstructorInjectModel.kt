@@ -7,7 +7,7 @@ import javax.inject.Singleton
 
 interface ByConstructorInjectModel
 
-@FragmentScoped
+//@FragmentScoped
 class ByConstructorInjectModelImpl @Inject constructor(
     val module: CommonModel
 ) : ByConstructorInjectModel
