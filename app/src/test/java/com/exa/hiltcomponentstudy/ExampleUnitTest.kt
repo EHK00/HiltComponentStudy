@@ -1,4 +1,4 @@
-package com.ekh.hiltcomponentstudy
+package com.exa.hiltcomponentstudy
 
 import org.junit.Test
 
