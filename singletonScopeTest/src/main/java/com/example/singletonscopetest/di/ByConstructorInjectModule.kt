@@ -1,5 +1,7 @@
 package com.example.singletonscopetest.di
 
+import com.example.singletonscopetest.model.ByConstructorInjectModel
+import com.example.singletonscopetest.model.ByConstructorInjectModelImpl
 import com.example.singletonscopetest.model.ByProviderModel
 import com.example.singletonscopetest.model.ByProviderModelImpl
 import com.example.singletonscopetest.model.CommonModel
@@ -9,26 +11,16 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.android.scopes.FragmentScoped
-import timber.log.Timber
 
 @Module
 @InstallIn(FragmentComponent::class)
-object ByProviderModule {
-    @Provides
-    fun provideCommonModel(): CommonModel {
-        return CommonModel()
-    }
-
+abstract class ByConstructorInjectModule {
     @MyQualifier(Type.Normal)
-    @Provides
-    fun provideNormalByProviderModel(commonModel: CommonModel): ByProviderModel {
-        return ByProviderModelImpl(commonModel)
-    }
+    @Binds
+    abstract fun bindByConstructorInjectModel(byConstructorInjectModel: ByConstructorInjectModelImpl): ByConstructorInjectModel
 
     @MyQualifier(Type.FragmentScope)
     @FragmentScoped
-    @Provides
-    fun provideFragmentScopeByProviderModel(commonModel: CommonModel): ByProviderModel {
-        return ByProviderModelImpl(commonModel)
-    }
+    @Binds
+    abstract fun bindFragmentScopeByConstructorInjectModel(byConstructorInjectModel: ByConstructorInjectModelImpl): ByConstructorInjectModel
 }

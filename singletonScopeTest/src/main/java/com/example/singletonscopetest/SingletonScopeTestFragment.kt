@@ -1,10 +1,13 @@
 package com.example.singletonscopetest
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.singletonscopetest.di.MyQualifier
 import com.example.singletonscopetest.di.Type
 import com.example.singletonscopetest.model.DestinationModel
+import com.example.singletonscopetest.model.DestinationModel2
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -14,12 +17,33 @@ class SingletonScopeTestFragment : Fragment(R.layout.fragment_singleton_scope_te
         const val TAG = "SingletonScopeTestFragment"
     }
 
-    @Inject
-    @MyQualifier(Type.Normal)
-    lateinit var model: DestinationModel
+//    @Inject
+//    @MyQualifier(Type.Normal)
+//    lateinit var model: DestinationModel
+//
+//    @Inject
+//    @MyQualifier(Type.FragmentScope)
+//    lateinit var model2: DestinationModel
 
     @Inject
-    @MyQualifier(Type.Fragment)
-    lateinit var model2: DestinationModel
+    @MyQualifier(Type.Normal)
+    lateinit var model3: DestinationModel2
+    @Inject
+    @MyQualifier(Type.FragmentScope)
+    lateinit var model4: DestinationModel2
+
+    init {
+        Timber.d("Fragment Instance Created")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Timber.d("Fragment onCreate called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.d("Fragment onDestroy called")
+    }
 
 }

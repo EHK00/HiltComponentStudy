@@ -3,7 +3,6 @@ package com.example.singletonscopetest.model
 import com.example.singletonscopetest.model.ByProviderModel
 
 class DestinationModel(
-    val byProvider: ByProviderModel,
-    val byProvider2: ByProviderModel,
-)  {
-}
+    private val byProvider: ByProviderModel,
+    private val byProvider2: ByProviderModel,
+)
