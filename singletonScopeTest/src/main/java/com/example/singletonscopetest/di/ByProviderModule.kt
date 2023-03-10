@@ -5,19 +5,19 @@ import com.example.singletonscopetest.model.ByProviderModelImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.FragmentComponent
+import dagger.hilt.android.scopes.FragmentScoped
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(FragmentComponent::class)
 abstract class ByProviderModule {
 
     @MyQualifier(Type.Normal)
     @Binds
     abstract fun provideNormalByProviderModel(byProvider: ByProviderModelImpl): ByProviderModel
 
-    @MyQualifier(Type.Singleton)
-    @Singleton
+    @MyQualifier(Type.Fragment)
+    @FragmentScoped
     @Binds
     abstract fun provideSingletonByProviderModel(byProvider: ByProviderModelImpl): ByProviderModel
 }

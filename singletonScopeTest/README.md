@@ -8,4 +8,5 @@ only installIn(SingletonComponent) vs construction injector with @Singleton anno
 
 
 
+[참고 사이트 : https://dagger.dev/hilt/components](https://dagger.dev/hilt/components)
 

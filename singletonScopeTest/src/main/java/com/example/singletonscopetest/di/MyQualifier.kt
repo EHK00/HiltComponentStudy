@@ -6,4 +6,4 @@ import javax.inject.Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class MyQualifier(val value: Type)
 
-enum class Type { Singleton, Normal }
+enum class Type { Fragment, Normal }

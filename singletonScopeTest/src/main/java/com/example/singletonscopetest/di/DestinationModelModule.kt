@@ -5,11 +5,11 @@ import com.example.singletonscopetest.model.DestinationModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.FragmentComponent
 import timber.log.Timber
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(FragmentComponent::class)
 object DestinationModelModule {
     @MyQualifier(Type.Normal)
     @Provides
@@ -25,14 +25,14 @@ object DestinationModelModule {
         )
     }
 
-    @MyQualifier(Type.Singleton)
+    @MyQualifier(Type.Fragment)
     @Provides
-    fun provideSingletonDestinationModel(
-        @MyQualifier(Type.Singleton) model1: ByProviderModel,
-        @MyQualifier(Type.Singleton) model2: ByProviderModel,
+    fun provideFragmentScopedDestinationModel(
+        @MyQualifier(Type.Fragment) model1: ByProviderModel,
+        @MyQualifier(Type.Fragment) model2: ByProviderModel,
     ): DestinationModel {
-        Timber.d("__ onProvideCalled :Singleton ${model1.hashCode()}")
-        Timber.d("__ onProvideCalled :Singleton ${model2.hashCode()}")
+        Timber.d("__ onProvideCalled :Fragment ${model1.hashCode()}")
+        Timber.d("__ onProvideCalled :Fragment ${model2.hashCode()}")
         return DestinationModel(
             byProvider = model1,
             byProvider2 = model2,

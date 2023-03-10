@@ -2,6 +2,8 @@ package com.example.singletonscopetest
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
+import androidx.fragment.app.commitNow
 import com.example.singletonscopetest.databinding.ActivitySingletonScopeTestBinding
 import com.example.singletonscopetest.di.MyQualifier
 import com.example.singletonscopetest.di.Type
@@ -11,16 +13,26 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SingletonScopeTestActivity : AppCompatActivity() {
-    @Inject
-    @MyQualifier(Type.Normal)
-    lateinit var model: DestinationModel
-
-    @Inject
-    @MyQualifier(Type.Singleton)
-    lateinit var model2: DestinationModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        setContentView(ActivitySingletonScopeTestBinding.inflate(layoutInflater).root)
         super.onCreate(savedInstanceState)
+        val binding = ActivitySingletonScopeTestBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        bindButton(binding)
+    }
+
+    private fun bindButton(binding: ActivitySingletonScopeTestBinding) {
+        binding.btToggleFragment.setOnClickListener {
+            val fragment = supportFragmentManager.findFragmentByTag(SingletonScopeTestFragment.TAG)
+            if (fragment != null) {
+                supportFragmentManager.commitNow {
+                    remove(fragment)
+                }
+            } else {
+                supportFragmentManager.commitNow {
+                    replace(binding.container.id, SingletonScopeTestFragment(), SingletonScopeTestFragment.TAG)
+                }
+            }
+        }
+
     }
 }
