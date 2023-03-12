@@ -13,15 +13,17 @@
         android:theme="@style/Theme.HiltComponentStudy"
         tools:targetApi="31">
         <activity
-            android:name="com.example.singletonscopetest.SingletonScopeTestActivity"
-            android:exported="true"
-            android:theme="@style/Theme.HiltComponentStudy">
+            android:name="com.exa.hiltcomponentstudy.TestSelectActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.example.singletonscopetest.SingletonScopeTestActivity" />
+        <activity android:name="com.example.hiltinjection.InjectionTestActivity" />
     </application>
 
 </manifest>
