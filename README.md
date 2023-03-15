@@ -6,7 +6,7 @@
 Hilt Component, scope binding에 따른 인스턴스 생성 테스트를 진행합니다.
 
 [custom scope](https://github.com/EHK00/HiltComponentStudy/tree/main/customScopeTest)
-사용자 정의 스코프의 동작 테스트를 진행합니다.
+사용자 정의 Component, scope에 대한 동작 테스트를 진행합니다.
 
 [entry point test]()
 android component가 아닌 다른 클래스에서 의존성 주입에 대한 테스트를 진행합니다
