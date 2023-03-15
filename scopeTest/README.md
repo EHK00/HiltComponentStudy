@@ -9,9 +9,9 @@ Hilt Component, scope binding에 따른 인스턴스 공유 여부를 테스트�
 ### 테스트
 
 1)bind scope 여부에 따라 동일한 인스턴스에서 di 요청시마다 동일한 객체를 바인딩하는지 테스트합니다.
-[FragmentLifeCycleModule](https://github.com/EHK00/HiltComponentStudy/blob/main/scopeTest/src/main/java/com/example/scopeTest/di/FragmentLifeCycleModule.kt)
 
-unscoped bind FragmentModel, FragmentScoped bind FragmentModel 비교합니다.
+[FragmentLifeCycleModule](https://github.com/EHK00/HiltComponentStudy/blob/main/scopeTest/src/main/java/com/example/scopeTest/di/FragmentLifeCycleModule.kt)
+에서 unscoped bind FragmentModel, FragmentScoped bind FragmentModel 비교합니다.
 FragmentScoped bind FragmentModel은 quialifier를 부여하여 구분합니다.
 
 각 객체는 FragmentScopeTestFragment 클래스로 주입되어 onCreate 시점에 hashCode를 출력합니다.
@@ -23,9 +23,9 @@ scoped bind 객체에서만 같은 객체가 바인드되면서 같은 객체를
 
 
 2)ActivityComponent에 설치된 모듈의 인스턴스 바인딩이 activity, fragment에 동일한 객체를 바인딩하는지 테스트합니다.
-[ActivityLifeCycleModule](https://github.com/EHK00/HiltComponentStudy/blob/main/scopeTest/src/main/java/com/example/scopeTest/di/ActivityLifeCycleModule.kt)
 
-unscoped bind ActivityModel, ActivityScoped bind ActivityModel을 비교합니다.
+[ActivityLifeCycleModule](https://github.com/EHK00/HiltComponentStudy/blob/main/scopeTest/src/main/java/com/example/scopeTest/di/ActivityLifeCycleModule.kt)
+에서 unscoped bind ActivityModel, ActivityScoped bind ActivityModel을 비교합니다.
 ActivityScoped bind ActivityModel은 quialifier를 부여하여 구분합니다.
 
 각 객체는 ScopeTestActivity, ActivityScopeTestFragment 클래스로 주입되어 onCreate 시점에 hashCode를 출력합니다.

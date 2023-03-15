@@ -21,7 +21,9 @@ customComponent 생명주기에 매핑된 scope입니다.
 
 customComponent를 생성하고 EntryPoint로부터 CheckModelHolder를 가져옵니다.
 
+
 EntryPoint?
+
 Dagger를 사용하여 종속성을 주입할 수 없는 코드에서 Dagger 제공 개체를 가져올 수 있는 진입점입니다.
 
 ### 테스트
