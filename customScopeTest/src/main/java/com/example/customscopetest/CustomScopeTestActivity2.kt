@@ -3,9 +3,8 @@ package com.example.customscopetest
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.customscopetest.databinding.ActivityCustomScopeBinding
+import com.example.customscopetest.databinding.ActivityCustomScope2Binding
 import com.example.customscopetest.di.CustomComponentEntryPoint
-import com.example.customscopetest.model.CheckModel
 import com.example.customscopetest.model.CheckModelAdapter
 import com.example.customscopetest.model.CustomComponentManager
 import dagger.hilt.EntryPoints
@@ -14,7 +13,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CustomScopeTestActivity : AppCompatActivity() {
+class CustomScopeTestActivity2 : AppCompatActivity() {
 
     @Inject
     lateinit var customComponentManager: CustomComponentManager
@@ -23,7 +22,7 @@ class CustomScopeTestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityCustomScopeBinding.inflate(layoutInflater)
+        val binding = ActivityCustomScope2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         customComponentManager.customComponent?.let {
@@ -31,16 +30,12 @@ class CustomScopeTestActivity : AppCompatActivity() {
                 .checkModelAdapter()
         } ?: run { checkModelAdapter = null }
 
-        binding.btnNewInstance.setOnClickListener {
-            customComponentManager.setup(CheckModel())
-            customComponentManager.customComponent?.let {
-                checkModelAdapter = EntryPoints.get(it, CustomComponentEntryPoint::class.java)
-                    .checkModelAdapter()
-            }
+        binding.btnRelease.setOnClickListener {
+            customComponentManager.release()
         }
 
-        binding.btnNextActivity.setOnClickListener {
-            startActivity(Intent(this, CustomScopeTestActivity2::class.java))
+        binding.btnBack.setOnClickListener {
+            startActivity(Intent(this, CustomScopeTestActivity::class.java))
             finish()
         }
 

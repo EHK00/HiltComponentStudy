@@ -24,6 +24,8 @@
 
         <activity android:name="com.example.scopetest.ScopeTestActivity" />
         <activity android:name="com.example.hiltinjection.InjectionTestActivity" />
+        <activity android:name="com.example.customscopetest.CustomScopeTestActivity"/>
+        <activity android:name="com.example.customscopetest.CustomScopeTestActivity2"/>
     </application>
 
 </manifest>

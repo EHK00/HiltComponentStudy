@@ -3,5 +3,5 @@ package com.example.customscopetest.di
 import javax.inject.Qualifier
 
 @Qualifier
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(AnnotationRetention.BINARY)
 internal annotation class CustomScope

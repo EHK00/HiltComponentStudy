@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.exa.hiltcomponentstudy.databinding.ActivityTestSelectBinding
-import com.example.hiltinjection.InjectionTestActivity
+import com.example.customscopetest.CustomScopeTestActivity
 import com.example.scopetest.ScopeTestActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,7 +27,7 @@ class TestSelectActivity : AppCompatActivity() {
             startActivity(intent)
         }
         bind.btHiltInjection.setOnClickListener {
-            val intent = Intent(this, InjectionTestActivity::class.java)
+            val intent = Intent(this, CustomScopeTestActivity::class.java)
             startActivity(intent)
         }
     }
