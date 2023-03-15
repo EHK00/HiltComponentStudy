@@ -2,10 +2,10 @@
 
 힐트에 관하여 여러가지 테스트가 포함된 프로젝트입니다.
 
-[Hilt component vs scope](https://github.com/EHK00/HiltComponentStudy/blob/main/scopeTest/README.md)
+[Hilt component vs scope](https://github.com/EHK00/HiltComponentStudy/tree/main/scopeTest)
 Hilt Component, scope binding에 따른 인스턴스 생성 테스트를 진행합니다.
 
-[custom scope]()
+[custom scope](https://github.com/EHK00/HiltComponentStudy/tree/main/customScopeTest)
 사용자 정의 스코프의 동작 테스트를 진행합니다.
 
 [entry point test]()
