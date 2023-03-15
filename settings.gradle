@@ -14,5 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "HiltComponentStudy"
 include ':app'
-include ':singletonScopeTest'
+include ':scopeTest'
 include ':hiltInjection'
+include ':customScopeTest'

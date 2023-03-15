@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.exa.hiltcomponentstudy.databinding.ActivityTestSelectBinding
 import com.example.hiltinjection.InjectionTestActivity
-import com.example.singletonscopetest.SingletonScopeTestActivity
+import com.example.scopetest.ScopeTestActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +23,7 @@ class TestSelectActivity : AppCompatActivity() {
 
     private fun bindButtons(bind: ActivityTestSelectBinding) {
         bind.btnSingletonScope.setOnClickListener {
-            val intent = Intent(this, SingletonScopeTestActivity::class.java)
+            val intent = Intent(this, ScopeTestActivity::class.java)
             startActivity(intent)
         }
         bind.btHiltInjection.setOnClickListener {

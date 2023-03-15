@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.singletonscopetest.SingletonScopeTestActivity" />
+        <activity android:name="com.example.scopetest.ScopeTestActivity" />
         <activity android:name="com.example.hiltinjection.InjectionTestActivity" />
     </application>
 

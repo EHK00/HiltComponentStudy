@@ -12,8 +12,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/customScopeTest" />
             <option value="$PROJECT_DIR$/hiltInjection" />
-            <option value="$PROJECT_DIR$/singletonScopeTest" />
+            <option value="$PROJECT_DIR$/scopeTest" />
           </set>
         </option>
       </GradleProjectSettings>
