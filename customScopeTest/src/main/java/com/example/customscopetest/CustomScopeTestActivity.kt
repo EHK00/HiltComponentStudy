@@ -4,11 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.customscopetest.databinding.ActivityCustomScopeBinding
-import com.example.customscopetest.di.CustomComponentEntryPoint
-import com.example.customscopetest.model.CheckModel
-import com.example.customscopetest.model.CheckModelAdapter
+import com.example.customscopetest.model.CheckModelHolder
 import com.example.customscopetest.model.CustomComponentManager
-import dagger.hilt.EntryPoints
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 import javax.inject.Inject
@@ -19,24 +16,17 @@ class CustomScopeTestActivity : AppCompatActivity() {
     @Inject
     lateinit var customComponentManager: CustomComponentManager
 
-    private var checkModelAdapter: CheckModelAdapter? = null
+    private var checkModelHolder: CheckModelHolder? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityCustomScopeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        customComponentManager.customComponent?.let {
-            checkModelAdapter = EntryPoints.get(it, CustomComponentEntryPoint::class.java)
-                .checkModelAdapter()
-        } ?: run { checkModelAdapter = null }
+        checkModelHolder = customComponentManager.get()
 
         binding.btnNewInstance.setOnClickListener {
-            customComponentManager.setup(CheckModel())
-            customComponentManager.customComponent?.let {
-                checkModelAdapter = EntryPoints.get(it, CustomComponentEntryPoint::class.java)
-                    .checkModelAdapter()
-            }
+            customComponentManager.release()
+            checkModelHolder = customComponentManager.get()
         }
 
         binding.btnNextActivity.setOnClickListener {
@@ -45,9 +35,9 @@ class CustomScopeTestActivity : AppCompatActivity() {
         }
 
         binding.btnCheck.setOnClickListener {
-            checkModelAdapter?.let {
-                Timber.d("__ ${it.checkModel}")
-            } ?: run { Timber.d("__ checkModelAdapter is null") }
+            checkModelHolder?.let {
+                Timber.d("__ checkModel: ${it.checkModel.hashCode()}")
+            } ?: run { Timber.d("__ checkModelHolder is null") }
         }
     }
 
