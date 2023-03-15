@@ -19,8 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="go To FirstActivity"
-        app:layout_constraintStart_toEndOf="@id/btnRelease"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnRelease"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
     <Button
@@ -28,8 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Check"
-        app:layout_constraintStart_toEndOf="@id/btnBack"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

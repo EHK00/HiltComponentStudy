@@ -26,7 +26,7 @@ class TestSelectActivity : AppCompatActivity() {
             val intent = Intent(this, ScopeTestActivity::class.java)
             startActivity(intent)
         }
-        bind.btHiltInjection.setOnClickListener {
+        bind.btCustomComponent.setOnClickListener {
             val intent = Intent(this, CustomScopeTestActivity::class.java)
             startActivity(intent)
         }

@@ -1,18 +1,24 @@
 package com.example.customscopetest.model
 
 import com.example.customscopetest.CustomComponent
-import com.example.customscopetest.di.CustomComponentEntryPoint
+import dagger.hilt.EntryPoint
 import dagger.hilt.EntryPoints
-import dagger.hilt.internal.GeneratedComponentManager
+import dagger.hilt.InstallIn
 import timber.log.Timber
 import javax.inject.Inject
-import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
 class CustomComponentManager @Inject constructor(
-    private val customComponentProvider: Provider<CustomComponent.Builder>,
-): GeneratedComponentManager<CustomComponent> {
+    private val customComponentProvider: CustomComponent.Builder,
+) : CustomComponent {
+
+    @InstallIn(CustomComponent::class)
+    @EntryPoint
+    interface CustomComponentEntryPoint {
+        fun checkModelHolder(): CheckModelHolder
+    }
+
     var customComponent: CustomComponent? = null
         private set
 
@@ -23,12 +29,8 @@ class CustomComponentManager @Inject constructor(
             .also { Timber.d("__ get checkModelHolder: ${it.hashCode()}") }
     }
 
-    override fun generatedComponent(): CustomComponent {
-        return customComponent ?: setup()
-    }
-
     private fun setup(): CustomComponent {
-        return customComponentProvider.get()
+        return customComponentProvider
             .build()
             .also {
                 customComponent = it
