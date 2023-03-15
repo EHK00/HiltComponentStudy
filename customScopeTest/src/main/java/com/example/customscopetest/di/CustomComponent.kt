@@ -1,4 +1,4 @@
-package com.example.customscopetest
+package com.example.customscopetest.di
 
 import dagger.hilt.DefineComponent
 import dagger.hilt.components.SingletonComponent

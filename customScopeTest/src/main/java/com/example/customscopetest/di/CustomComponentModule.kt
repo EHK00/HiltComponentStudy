@@ -1,7 +1,5 @@
 package com.example.customscopetest.di
 
-import com.example.customscopetest.CustomComponent
-import com.example.customscopetest.CustomScope
 import com.example.customscopetest.model.CheckModel
 import com.example.customscopetest.model.CheckModelHolder
 import dagger.Module

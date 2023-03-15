@@ -1,4 +1,4 @@
-package com.example.customscopetest
+package com.example.customscopetest.di
 
 import javax.inject.Scope
 

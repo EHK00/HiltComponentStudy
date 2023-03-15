@@ -1,6 +1,6 @@
 package com.example.customscopetest.model
 
-import com.example.customscopetest.CustomComponent
+import com.example.customscopetest.di.CustomComponent
 import dagger.hilt.EntryPoint
 import dagger.hilt.EntryPoints
 import dagger.hilt.InstallIn
