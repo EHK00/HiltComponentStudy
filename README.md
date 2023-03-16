@@ -3,12 +3,14 @@
 힐트에 관하여 여러가지 테스트가 포함된 프로젝트입니다.
 
 [Hilt component vs scope](https://github.com/EHK00/HiltComponentStudy/tree/main/scopeTest)
-Hilt Component, scope binding에 따른 인스턴스 생성 테스트를 진행합니다.
+
+Hilt Component, scope binding에 따른 인스턴스 공유 여부를 테스트합니다.
+
+하위 범위의 안드로이드 컴포넌트에 동일한 객체를 바인딩하는지, 동일한 안드로이드 컴포넌트에서 동일한 객체를 바인딩하는지 등을 테스트합니다.
 
 [custom scope](https://github.com/EHK00/HiltComponentStudy/tree/main/customScopeTest)
-사용자 정의 Component, scope에 대한 동작 테스트를 진행합니다.
 
-[entry point test]()
-android component가 아닌 다른 클래스에서 의존성 주입에 대한 테스트를 진행합니다
-[참고자료](https://myungpyo.medium.com/hilt-custom-component-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-a0452fe2566a)
+hilt custom component, scope를 구현하고 테스트합니다.
+
+사용자가 명시적으로 생성/해제할 수 있는 컴포넌트를 생성하여 안드로이드 컴포넌트 생명주기와는 별도로 관리되는 생명주기를 테스트합니다.
 
