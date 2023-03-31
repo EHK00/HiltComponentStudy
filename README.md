@@ -8,7 +8,7 @@ Hilt Component, scope binding에 따른 인스턴스 공유 여부를 테스트�
 
 하위 범위의 안드로이드 컴포넌트에 동일한 객체를 바인딩하는지, 동일한 안드로이드 컴포넌트에서 동일한 객체를 바인딩하는지 등을 테스트합니다.
 
-## [custom scope](https://github.com/EHK00/HiltComponentStudy/tree/main/customScopeTest)
+## [Custom component, scope](https://github.com/EHK00/HiltComponentStudy/tree/main/customScopeTest)
 
 hilt custom component, scope를 구현하고 테스트합니다.
 
